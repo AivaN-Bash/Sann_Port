@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="30" fill="#0d0d0d"/>
+
+  <!-- Mask top arch -->
+  <path
+    d="M10 28 Q12 14 32 13 Q52 14 54 28 L52 30 Q48 20 32 19 Q16 20 12 30 Z"
+    fill="#e8003c"
+  />
+
+  <!-- Mask body -->
+  <path
+    d="M12 30 Q10 42 18 50 Q24 56 32 55 Q40 56 46 50 Q54 42 52 30 L48 32 Q46 44 38 50 Q35 52 32 52 Q29 52 26 50 Q18 44 16 32 Z"
+    fill="#f5f5f5"
+  />
+
+  <!-- Left eye hole -->
+  <ellipse cx="22" cy="33" rx="6" ry="4.5" fill="#0d0d0d"/>
+  <!-- Right eye hole -->
+  <ellipse cx="42" cy="33" rx="6" ry="4.5" fill="#0d0d0d"/>
+
+  <!-- Left eye red shine -->
+  <ellipse cx="22" cy="33" rx="4" ry="3" fill="#e8003c" opacity="0.9"/>
+  <!-- Right eye red shine -->
+  <ellipse cx="42" cy="33" rx="4" ry="3" fill="#e8003c" opacity="0.9"/>
+
+  <!-- Nose bridge -->
+  <path d="M29 36 Q32 39 35 36" stroke="#0d0d0d" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Smile -->
+  <path d="M24 44 Q32 49 40 44" stroke="#0d0d0d" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Ahoge hair spike (P5 style) -->
+  <path d="M32 13 Q33 6 37 4 Q35 10 36 13" fill="#e8003c"/>
+
+  <!-- Gold trim accent on mask edge -->
+  <path
+    d="M12 30 Q10 42 18 50 Q24 56 32 55 Q40 56 46 50 Q54 42 52 30"
+    stroke="#d4af37" stroke-width="1" fill="none" opacity="0.6"
+  />
+</svg>

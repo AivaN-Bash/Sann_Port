@@ -1,0 +1,21 @@
+{
+  "short_name": "Saan Nize",
+  "name": "Saan Nize | Video Editor · Motion Designer",
+  "description": "Cinematic video editing and motion design portfolio. Bilingual English / Japanese.",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#e8003c",
+  "background_color": "#0d0d0d",
+  "categories": ["portfolio", "design", "video"],
+  "lang": "en",
+  "dir": "ltr"
+}

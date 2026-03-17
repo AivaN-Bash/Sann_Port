@@ -1,0 +1,51 @@
+/* ── Cursor ──────────────────────────────────────────────────── */
+.custom-cursor {
+  position: fixed; top: 0; left: 0;
+  /* MUST be below nav (320) and drawer (310) and overlay (300)
+     but above normal page content (z:1) */
+  z-index: 100000; /* always above everything including fs-menu (99999) */
+  pointer-events: none;
+  user-select: none; -webkit-user-select: none;
+}
+
+.cursor__dot {
+  position: absolute;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent);
+  /* Start off-screen, opacity 0 — shown on first mousemove */
+  transform: translate(-200px, -200px);
+  opacity: 0;
+  margin-left: -4px; margin-top: -4px;
+  will-change: transform;
+  /* Only transition visual properties, NOT transform (RAF handles that) */
+  transition: opacity 0.15s ease, width 0.15s ease, height 0.15s ease, margin 0.15s ease;
+}
+
+.cursor__ring {
+  position: absolute;
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 1.5px solid rgba(var(--accent-rgb), 0.5);
+  transform: translate(-200px, -200px);
+  opacity: 0;
+  margin-left: -16px; margin-top: -16px;
+  will-change: transform;
+  transition: opacity 0.15s ease, width 0.15s ease, height 0.15s ease,
+              margin 0.15s ease, border-color 0.15s ease;
+}
+
+/* Hover state */
+.cursor__dot.cursor--hover {
+  width: 12px; height: 12px;
+  margin-left: -6px; margin-top: -6px;
+  background: var(--accent-hover);
+}
+.cursor__ring.cursor--hover {
+  width: 42px; height: 42px;
+  margin-left: -21px; margin-top: -21px;
+  border-color: rgba(var(--accent-rgb), 0.85);
+}
+
+/* Touch: hide completely */
+@media (hover: none) {
+  .custom-cursor { display: none !important; }
+}

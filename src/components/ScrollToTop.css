@@ -1,0 +1,35 @@
+/* ── ScrollToTop ─────────────────────────────────────────────── */
+.scroll-top {
+  position: fixed;
+  bottom: max(var(--sp-8), env(safe-area-inset-bottom, var(--sp-8)));
+  right: var(--sp-8);           /* RIGHT side — never left */
+  z-index: 50;
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent); color: var(--text-invert);
+  border: none; border-radius: var(--card-radius);
+  cursor: pointer; overflow: hidden;
+  opacity: 0; transform: translateY(12px);
+  transition: opacity var(--tr), transform var(--tr),
+              background-color var(--tr-fast), box-shadow var(--tr-fast);
+  pointer-events: none;
+}
+.scroll-top--visible {
+  opacity: 1; transform: translateY(0); pointer-events: auto;
+}
+.scroll-top:hover {
+  background: var(--accent-hover); box-shadow: var(--shadow-glow);
+}
+.scroll-top__icon {
+  font-size: var(--text-lg); font-weight: 700; line-height: 1;
+  display: block; transition: transform var(--tr-fast);
+}
+.scroll-top:hover .scroll-top__icon { transform: translateY(-2px); }
+
+@media (hover: none) { .scroll-top { width: 52px; height: 52px; } }
+@media (max-width: 640px) {
+  .scroll-top {
+    bottom: max(var(--sp-6), env(safe-area-inset-bottom, var(--sp-6)));
+    right: var(--sp-5);
+  }
+}

@@ -1,0 +1,147 @@
+/* ══════════════════════════════════════════════════════
+   LOADING SCREEN  v3  —  ~950ms total
+   ══════════════════════════════════════════════════════ */
+
+.ls-site-wrap {
+  position: fixed; inset: 0;
+  visibility: hidden; pointer-events: none; z-index: 0;
+}
+
+/* ── Overlay ─────────────────────────────────────────── */
+.ls {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--bg-primary);
+  display: flex; align-items: center; justify-content: center;
+  transform: translateZ(0);
+}
+.ls--exit {
+  animation: ls-out 0.35s cubic-bezier(0.76,0,0.24,1) forwards;
+}
+@keyframes ls-out {
+  0%   { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-8px); }
+}
+
+/* ── Top progress bar ────────────────────────────────── */
+.ls__topbar {
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; z-index: 2; overflow: visible;
+}
+.ls__topbar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #ff6b9d, var(--accent));
+  background-size: 200% 100%;
+  width: 0%;
+  animation:
+    bar-fill  0.55s cubic-bezier(0.16,1,0.3,1) 0.05s forwards,
+    bar-shine 1.2s linear 0.05s infinite;
+}
+@keyframes bar-fill  { to { width: 100%; } }
+@keyframes bar-shine { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
+
+.ls__topbar-glow {
+  position: absolute; top: 0; right: 0;
+  width: 80px; height: 12px;
+  background: radial-gradient(ellipse at right, rgba(232,0,60,0.8), transparent 70%);
+  pointer-events: none;
+  animation: glow-travel 0.55s cubic-bezier(0.16,1,0.3,1) 0.05s forwards;
+}
+@keyframes glow-travel {
+  from { transform: translateX(-80vw); opacity: 0.8; }
+  to   { transform: translateX(0);     opacity: 0; }
+}
+
+/* ── Center card ─────────────────────────────────────── */
+.ls__card {
+  position: relative;
+  background: var(--bg-secondary);
+  border: 1px solid rgba(232,0,60,0.15);
+  border-left: 4px solid var(--accent);
+  padding: 40px 48px;
+  max-width: 480px; width: 90vw;
+  overflow: hidden;
+  opacity: 0;
+  animation: card-in 0.35s cubic-bezier(0.16,1,0.3,1) 0.08s forwards;
+}
+@keyframes card-in {
+  from { opacity:0; transform:translateY(16px) scale(0.97); }
+  to   { opacity:1; transform:translateY(0)    scale(1); }
+}
+
+/* P5 diagonal slash inside card */
+.ls__slash {
+  position: absolute; top: -20%; right: -8%;
+  width: 45%; height: 140%;
+  background: rgba(var(--accent-rgb),0.04);
+  transform: skewX(-12deg);
+}
+
+.ls__content { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 28px; }
+
+/* Logo row */
+.ls__logo-row { display: flex; align-items: center; gap: 20px; }
+.ls__sn {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.5rem, 12vw, 5.5rem);
+  color: var(--text-primary); letter-spacing: 0.1em; line-height: 1;
+  flex-shrink: 0;
+}
+.ls__divider {
+  width: 2px; height: 64px;
+  background: linear-gradient(to bottom, transparent, var(--accent) 30%, var(--accent) 70%, transparent);
+  flex-shrink: 0;
+}
+.ls__title-col { display: flex; flex-direction: column; gap: 6px; }
+.ls__name {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+  letter-spacing: 0.28em; color: var(--accent); text-transform: uppercase;
+}
+.ls__role {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: clamp(0.55rem, 1.8vw, 0.65rem);
+  letter-spacing: 0.14em; color: var(--text-muted); text-transform: uppercase;
+}
+
+/* Bottom bar */
+.ls__bottom { display: flex; flex-direction: column; gap: 10px; }
+.ls__bar-track {
+  width: 100%; height: 2px;
+  background: rgba(255,255,255,0.06); border-radius: 1px; overflow: hidden;
+}
+.ls__bar-fill {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--accent), #ff6b9d);
+  animation: bar-fill 0.52s cubic-bezier(0.16,1,0.3,1) 0.08s forwards;
+}
+.ls__pct {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem; letter-spacing: 0.12em; color: var(--text-muted);
+  display: flex; align-items: center; gap: 8px;
+}
+.ls__pct-num {
+  color: var(--accent); opacity: 0.6;
+  animation: pct-blink 0.5s step-end infinite;
+}
+@keyframes pct-blink { 0%,100% { opacity:0.6; } 50% { opacity:0.2; } }
+
+/* ── Corners ─────────────────────────────────────────── */
+.ls__corner {
+  position: absolute;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.58rem; letter-spacing: 0.14em;
+  color: var(--bg-secondary); text-transform: uppercase;
+  opacity: 0; animation: fade-in 0.3s ease 0.2s forwards;
+}
+@keyframes fade-in { to { opacity:1; } }
+.ls__corner--tl { top: 20px; left: 24px; }
+.ls__corner--br { bottom: 20px; right: 24px; }
+
+/* ── Reduced motion ──────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .ls__topbar-fill, .ls__bar-fill { animation: none !important; width: 100% !important; }
+  .ls__topbar-glow, .ls__pct-num  { animation: none !important; }
+  .ls__card   { animation: none !important; opacity: 1 !important; transform: none !important; }
+  .ls__corner { animation: none !important; opacity: 1 !important; }
+  .ls--exit   { animation: none !important; opacity: 0 !important; }
+}

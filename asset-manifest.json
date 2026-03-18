@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Sann_Port/static/css/main.aa61a3c9.css",
-    "main.js": "/Sann_Port/static/js/main.7290cb23.js",
-    "static/css/979.ad8ffb41.chunk.css": "/Sann_Port/static/css/979.ad8ffb41.chunk.css",
+    "main.js": "/Sann_Port/static/js/main.bfa69014.js",
+    "static/css/979.fa6faa28.chunk.css": "/Sann_Port/static/css/979.fa6faa28.chunk.css",
     "static/js/979.c5139b18.chunk.js": "/Sann_Port/static/js/979.c5139b18.chunk.js",
     "static/css/955.4f14c18e.chunk.css": "/Sann_Port/static/css/955.4f14c18e.chunk.css",
     "static/js/955.47123e4a.chunk.js": "/Sann_Port/static/js/955.47123e4a.chunk.js",
@@ -14,8 +14,8 @@
     "static/js/385.c5d0f890.chunk.js": "/Sann_Port/static/js/385.c5d0f890.chunk.js",
     "index.html": "/Sann_Port/index.html",
     "main.aa61a3c9.css.map": "/Sann_Port/static/css/main.aa61a3c9.css.map",
-    "main.7290cb23.js.map": "/Sann_Port/static/js/main.7290cb23.js.map",
-    "979.ad8ffb41.chunk.css.map": "/Sann_Port/static/css/979.ad8ffb41.chunk.css.map",
+    "main.bfa69014.js.map": "/Sann_Port/static/js/main.bfa69014.js.map",
+    "979.fa6faa28.chunk.css.map": "/Sann_Port/static/css/979.fa6faa28.chunk.css.map",
     "979.c5139b18.chunk.js.map": "/Sann_Port/static/js/979.c5139b18.chunk.js.map",
     "955.4f14c18e.chunk.css.map": "/Sann_Port/static/css/955.4f14c18e.chunk.css.map",
     "955.47123e4a.chunk.js.map": "/Sann_Port/static/js/955.47123e4a.chunk.js.map",
@@ -28,6 +28,6 @@
   },
   "entrypoints": [
     "static/css/main.aa61a3c9.css",
-    "static/js/main.7290cb23.js"
+    "static/js/main.bfa69014.js"
   ]
 }
